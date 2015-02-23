@@ -271,10 +271,10 @@ def write_data_to_csv():
             
     user_table = pd.DataFrame.from_records(user_list, index = 'UserId', columns = ['UserId', 'UserName', 'NumFollowers', 'Location'])        
     user_table.loc[user_table.Location.isnull(), 'Location'] = 'Unknown'
-    user_table.to_csv('UserData.csv')
+    user_table.to_csv('UserData.csv', header = False)
     
     connection_table = pd.DataFrame.from_records(connection_list, index = 'RetweetUserId', columns = ['RetweetUserId', 'OrigUserId', 'TweetId'])           
-    connection_table.to_csv('ConnectionData.csv')
+    connection_table.to_csv('ConnectionData.csv', header = False)
     
 def pull_twitter_data():
     
